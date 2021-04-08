@@ -20,6 +20,7 @@ module.exports = {
     'no-plusplus': 'off',
     'func-names': 'off',
     'space-before-function-paren': 'off',
-    'linebreak-style': 'off'
+    'linebreak-style': 'off',
+    'as-needed':'off'
   },
 };
