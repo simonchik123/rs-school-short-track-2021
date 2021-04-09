@@ -14,19 +14,17 @@
  *
  */
 function renameFiles(names) {
-
-  while (names.every((c, i) => names.indexOf(c) === i)) {
-    let count = 0;
-    return names.map((e, i) => {
-      if (names.indexOf(e) !== i) {
-        count++;
-        /* eslint-disable-next-line */
-        e += `(${count})`;
-        return e;
-      }
-      return e;
-    });
-  }
+  const elcount = {};
+  return names.map((e) => {
+    let newEl = e;
+    if (elcount[e]) {
+      /* eslint-disable-next-line */
+      newEl += `(${elcount[e]})`;
+      elcount[e] += 1;
+    }
+    elcount[newEl] = 1;
+    return newEl;
+  });
 }
 
 module.exports = renameFiles;
